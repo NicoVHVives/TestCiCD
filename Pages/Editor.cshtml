@@ -1,0 +1,31 @@
+﻿@page "{id:long}"
+@model EditorModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="bg-primary text-white text-center m-2 p-2">Editor</div>
+    <table class="table table-sm table-striped table-bordered">
+        <tbody>
+            <tr for="Product.Name" />
+            <tr for="Product.Price" format="c"/>
+        </tbody>
+    </table>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label>Price</label>
+            <input class="form-control" name="price" value="@Model.Product?.Price"/>
+        </div>
+        <button class="btn btn-primary mt-2">Submit</button>
+    </form>
+</body>
+</html>

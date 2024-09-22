@@ -1,0 +1,15 @@
+﻿@model Product
+@{
+    Layout = "_SimpleLayout";
+}
+<div route-data="true"></div>
+<div class="m-2" wrap="true">Inner Content</div>
+
+<table class="table table-striped table-sm table-bordered">
+    <tablehead bg-color="info">Product Summary</tablehead>
+    <tbody>
+        <tr for="Name"/>
+        <tr for="Price" format="c"/>
+        <tr for="CategoryId"/>
+    </tbody>
+</table>
