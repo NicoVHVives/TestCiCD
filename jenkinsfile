@@ -12,14 +12,14 @@ pipeline {
 		stage('Publish') {
 			steps {
 				script {
-                    bat 'dotnet publish -c Release -o ./publish'
+                    bat 'dotnet publish -c Release ./publish'
                 }
 			}
 		}
 		stage('Deploy') {
 			steps {
 				echo 'Deploying...'
-                sh 'scp -r ./publish/* CICDTEST\nvanhecke@4.211.249.95:/inetpub/wwwroot'
+                sh 'scp.exe -r ./publish/* CICDTEST\nvanhecke@4.211.249.95:/inetpub/wwwroot'
 			}
 		}
 	 }
