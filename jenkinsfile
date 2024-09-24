@@ -21,9 +21,9 @@ pipeline {
 				echo 'Deploying...'
 				withCredentials([sshUserPrivateKey(credentialsId: 'nvanhecke', keyFileVariable : 'SSH_KEY')]) {
 					 echo 'In Key part'
-					 bat 'echo $SSH_KEY'
+					 echo %SSH_KEY%
                      bat '''
-					 scp.exe -i $SSH_KEY -r ./publish/* nvanhecke@4.211.249.95:/inetpub/wwwroot
+					 scp.exe -i %SSH_KEY% -r ./publish/* nvanhecke@4.211.249.95:/inetpub/wwwroot
 					 '''
                 }
                
