@@ -4,7 +4,9 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				echo 'Building'
+				script {
+                    bat 'msbuild WebApp.csproj /restore /p:Configuration=Release %MSBUILD_ARGS%'
+                }
 			}
 		}
 		stage('Deploy') {
