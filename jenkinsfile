@@ -9,6 +9,13 @@ pipeline {
                 }
 			}
 		}
+		stage('Publish') {
+			steps {
+				script {
+                    bat 'dotnet publish -c Release -o ./publish'
+                }
+			}
+		}
 		stage('Deploy') {
 			steps {
 				echo 'Deploying'
