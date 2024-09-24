@@ -19,7 +19,7 @@ pipeline {
 		stage('Deploy') {
 			steps {
 				echo 'Deploying...'
-                sh 'scp.exe -r ./publish/* CICDTEST\nvanhecke@4.211.249.95:/inetpub/wwwroot'
+                bat 'scp.exe -r ./publish/* CICDTEST\nvanhecke@4.211.249.95:/inetpub/wwwroot'
 			}
 		}
 	 }
