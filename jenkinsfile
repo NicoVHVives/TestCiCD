@@ -31,7 +31,7 @@ pipeline {
                      bat 'scp.exe -r ./publish/* nvanhecke@4.211.249.95:/inetpub/wwwroot'
 					 echo 'Wait three seconds before restarting app pool...'
 					 sleep(time:3,unit:"SECONDS") 
-					 bat 'ssh nvanhecke@4.211.249.95 "powershell.exe -Command Stop-WebAppPool -Name DefaultAppPool"'
+					 bat 'ssh nvanhecke@4.211.249.95 "powershell.exe -Command Start-WebAppPool -Name DefaultAppPool"'
 					 echo 'Wait three seconds before restarting website...'
 					 sleep(time:3,unit:"SECONDS") 
 					 echo 'Restarting website...'
