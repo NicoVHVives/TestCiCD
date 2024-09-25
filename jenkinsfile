@@ -20,9 +20,16 @@ pipeline {
 			steps {
 				echo 'Deploying...'
 				withCredentials([sshUserPrivateKey(credentialsId: 'nvanhecke', keyFileVariable : 'SSH_KEY')]) {
-					 echo 'In Key part'
-					 echo '%SSH_KEY%'
+					 echo 'Stopping website...'
+					 bat 'ssh nvanhecke@4.211.249.95 "powershell.exe -Command Stop-Website Default"'
+					 echo 'Wait three seconds before scp...'
+					 sleep(time:3,unit:"SECONDS") 
+					 echo 'Start scp...'
                      bat 'scp.exe -r ./publish/* nvanhecke@4.211.249.95:/inetpub/wwwroot'
+					 echo 'Wait three seconds before restarting website...'
+					 sleep(time:3,unit:"SECONDS") 
+					 echo 'Restarting website...'
+					 bat 'ssh nvanhecke@4.211.249.95 "powershell.exe -Command Start-Website Default"'
                 }
                
 			}
