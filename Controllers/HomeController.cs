@@ -12,7 +12,7 @@ namespace WebApp.Controllers
         public HomeController(DataContext context) => _context = context;
 
         [ChangeArg]
-        public IActionResult Index(string message1, string message2 = "None")
+        public IActionResult Index(string message1 = "None??", string message2 = "None")
         {
           
                 return View("Message",
