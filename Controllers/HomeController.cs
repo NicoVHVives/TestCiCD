@@ -16,7 +16,7 @@ namespace WebApp.Controllers
         {
           
                 return View("Message",
-                   $"GODVERDOMME JA {message1} - {message2}");
+                   $"DAG PETER {message1} - {message2}");
 
         }
 

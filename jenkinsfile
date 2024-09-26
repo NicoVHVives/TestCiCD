@@ -41,5 +41,10 @@ pipeline {
 			}
 		}	
 	 }
+	 post { 
+        always { 
+            deleteDir()
+        }
+    }
 	 
 }
